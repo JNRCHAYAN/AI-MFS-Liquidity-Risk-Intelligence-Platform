@@ -41,6 +41,9 @@ blob-report/
 # ---------------------------------------------------------------------------
 data/raw/
 data/generated/
+# Scratch output from running the generator twice to compare determinism
+# (e.g. --out data/generated_b). Regenerable; not project artifacts.
+data/_*/
 *.parquet
 *.csv.gz
 ml/artifacts/*.ubj.tmp
