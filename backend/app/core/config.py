@@ -7,10 +7,15 @@ variable name and its purpose; no real value is ever committed.
 from __future__ import annotations
 
 from functools import lru_cache
+from pathlib import Path
 from typing import Literal
 
 from pydantic import Field, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+#: Repository root, derived from this file's location:
+#: backend/app/core/config.py -> core -> app -> backend -> repo root.
+REPO_ROOT = Path(__file__).resolve().parents[3]
 
 # The business timezone. Behavioural hour/day features are derived in this zone
 # consistently between training and inference. Storage is always UTC.
@@ -79,6 +84,19 @@ class Settings(BaseSettings):
     @property
     def is_production(self) -> bool:
         return self.app_env == "production"
+
+    @property
+    def model_bundle_dir(self) -> Path:
+        """Absolute path to the model bundle.
+
+        A relative ``MODEL_BUNDLE_PATH`` is resolved against the repository
+        root, not the process working directory. Without this, running the API
+        from ``backend/`` would look for ``backend/ml/artifacts`` while running
+        it from the repository root would find ``ml/artifacts`` — the same
+        configuration silently pointing at two different places.
+        """
+        path = Path(self.model_bundle_path)
+        return path if path.is_absolute() else (REPO_ROOT / path)
 
     @property
     def llm_enabled(self) -> bool:

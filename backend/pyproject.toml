@@ -2,7 +2,9 @@
 name = "upay-shield-backend"
 version = "0.1.0"
 description = "upay Shield — Trust & Risk Intelligence API (hackathon prototype)"
-readme = "../README.md"
+# No `readme` field: the project README lives at the repository root, and
+# setuptools refuses to reference a path outside the build root. This keeps
+# both `pip install -e ./backend` and the Docker build working.
 requires-python = ">=3.11"
 
 # Versions are intentionally ranged here and locked exactly after a successful

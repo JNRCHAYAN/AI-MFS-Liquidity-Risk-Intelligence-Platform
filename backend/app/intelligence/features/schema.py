@@ -26,13 +26,13 @@ mismatch must fail readiness rather than silently score with wrong inputs.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from enum import Enum
+from enum import StrEnum
 
 # Bump on ANY change to the feature set, its order, dtype or semantics.
 FEATURE_SCHEMA_VERSION = "1.0.0"
 
 
-class DType(str, Enum):
+class DType(StrEnum):
     """Storage dtype of a feature value."""
 
     INT = "int64"
@@ -41,7 +41,7 @@ class DType(str, Enum):
     CATEGORY = "category"
 
 
-class MissingStrategy(str, Enum):
+class MissingStrategy(StrEnum):
     """How a feature's absent value is represented.
 
     Declaring this explicitly prevents the classic silent bug where a missing
@@ -60,7 +60,7 @@ class MissingStrategy(str, Enum):
     FLAG_DEPENDENT = "flag_dependent"
 
 
-class FeatureGroup(str, Enum):
+class FeatureGroup(StrEnum):
     """Logical grouping, used for evidence presentation and slicing."""
 
     AMOUNT = "amount"
