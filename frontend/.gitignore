@@ -1,0 +1,7 @@
+# Frontend-local ignores. The repository root .gitignore already covers most
+# of these; kept here so the frontend folder is self-contained.
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
