@@ -1,0 +1,59 @@
+# Local development stack for upay Shield.
+#
+# This file is for LOCAL development only. Render deployment describes two
+# separate web services (see render.yaml) rather than asking Render to run
+# this Compose file.
+#
+# Usage:
+#   docker compose up -d db        # start PostgreSQL
+#   docker compose logs -f db      # follow logs
+#   docker compose down            # stop (keeps the named volume)
+#   docker compose down -v         # stop and DELETE the local database
+
+name: upay-shield
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: shield-db
+    restart: unless-stopped
+    environment:
+      # Local throwaway credentials only. Never reuse these anywhere deployed.
+      POSTGRES_USER: shield
+      POSTGRES_PASSWORD: shield
+      POSTGRES_DB: shield
+      # Deterministic collation so index behaviour matches production.
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=C"
+    ports:
+      - "5432:5432"
+    volumes:
+      - shield-db-data:/var/lib/postgresql/data
+    healthcheck:
+      # Readiness, not just liveness: the container is only usable once
+      # PostgreSQL actually accepts connections.
+      test: ["CMD-SHELL", "pg_isready -U shield -d shield"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+  # Optional: a web UI for inspecting local data during development.
+  # Not required to run the application.
+  db-admin:
+    image: dpage/pgadmin4:latest
+    container_name: shield-db-admin
+    restart: unless-stopped
+    profiles: ["tools"]
+    environment:
+      PGADMIN_DEFAULT_EMAIL: dev@example.invalid
+      PGADMIN_DEFAULT_PASSWORD: dev
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+    ports:
+      - "5050:80"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  shield-db-data:
+    name: shield-db-data
