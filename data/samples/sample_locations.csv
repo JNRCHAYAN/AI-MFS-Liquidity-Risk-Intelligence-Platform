@@ -1,0 +1,26 @@
+location_id,region,area,latitude,longitude
+dhaka.mirpur,dhaka,mirpur,23.7428,90.3399
+dhaka.gulshan,dhaka,gulshan,23.8373,90.4004
+dhaka.dhanmondi,dhaka,dhanmondi,23.7833,90.4609
+dhaka.uttara,dhaka,uttara,23.8778,90.3641
+chattogram.agrabad,chattogram,agrabad,22.2894,91.7106
+chattogram.halishahar,chattogram,halishahar,22.3839,91.7711
+chattogram.pahartali,chattogram,pahartali,22.3299,91.8316
+khulna.sonadanga,khulna,sonadanga,22.7781,89.4677
+khulna.khalishpur,khulna,khalishpur,22.8726,89.5282
+khulna.daulatpur,khulna,daulatpur,22.8186,89.5887
+rajshahi.boalia,rajshahi,boalia,24.307,88.5316
+rajshahi.motihar,rajshahi,motihar,24.4015,88.5921
+rajshahi.shaheb-bazar,rajshahi,shaheb-bazar,24.3475,88.6526
+sylhet.zindabazar,sylhet,zindabazar,24.8274,91.7961
+sylhet.ambar-khana,sylhet,ambar khana,24.9219,91.8566
+sylhet.south-surma,sylhet,south surma,24.8679,91.9171
+barishal.band-road,barishal,band road,22.6335,90.2809
+barishal.natun-bazar,barishal,natun bazar,22.728,90.3414
+barishal.rupatali,barishal,rupatali,22.674,90.4019
+rangpur.jahaj-company,rangpur,jahaj company,25.6764,89.2026
+rangpur.mahiganj,rangpur,mahiganj,25.7709,89.2631
+rangpur.darshana,rangpur,darshana,25.7169,89.3236
+mymensingh.ganginarpar,mymensingh,ganginarpar,24.6796,90.3477
+mymensingh.charpara,mymensingh,charpara,24.7741,90.4082
+mymensingh.kewatkhali,mymensingh,kewatkhali,24.7201,90.4687

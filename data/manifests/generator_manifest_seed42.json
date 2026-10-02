@@ -1,0 +1,77 @@
+{
+  "benign_confounders": {
+    "bulk_merchant_receipts": 336,
+    "salary_day_spike": 2702,
+    "travel_new_device": 191
+  },
+  "class_mix": {
+    "fraud": 2598,
+    "fraud_budget_share": 0.05,
+    "fraud_rate": 0.0433,
+    "normal": 57402
+  },
+  "config": {
+    "agents": 30,
+    "days": 90,
+    "merchants": 50,
+    "transactions_requested": 60000,
+    "wallets": 1000
+  },
+  "entity_kinds": {
+    "agent": 30,
+    "customer": 1000,
+    "merchant": 50
+  },
+  "fraud_families": {
+    "agent_cashout_spike": 249,
+    "ato": 257,
+    "circular": 145,
+    "mule_fanin": 310,
+    "scam_escalation": 478,
+    "scam_split": 591,
+    "velocity_burst": 568
+  },
+  "generator_version": "1.0.0",
+  "hash_algorithm": "sha256",
+  "notes": "Synthetic data only. Ground-truth labels exist only in scenario_truth.parquet keyed by transaction_id. Money is integer poisha. Timestamps are timezone-aware UTC. The same seed and counts reproduce byte-identical Parquet output.",
+  "outputs": {
+    "directory": "data\\generated",
+    "files": {
+      "devices.parquet": {
+        "sha256": "68d7a1894c909b8cd716e7d01d1e84a9e6488d4f0b8bcb9e6cbc3ead7b647e69"
+      },
+      "entities.parquet": {
+        "sha256": "adc198d32dd599677c228df07abaea2f1273fff53218ba1149eae76b6939c30c"
+      },
+      "locations.parquet": {
+        "sha256": "58aa6ddfb43e8576a58debda93dbac1121d4014f2474350cadb8d9b47011e546"
+      },
+      "login_events.parquet": {
+        "sha256": "0d99903ecc0033e24a3143d5080e93e5b43eefa5609c4f1e6a7700afa6ea5250"
+      },
+      "scenario_truth.parquet": {
+        "sha256": "079d512c22771945d2b027ef3dcd036bf0086fe83094b7bd5494cfda5e985940"
+      },
+      "transactions.parquet": {
+        "sha256": "9b340f5ef1250980b67fc8f37c949cf084068f0d1019ee363f472a1a8ad8c424"
+      }
+    },
+    "format": "parquet"
+  },
+  "row_counts": {
+    "devices": 1425,
+    "entities": 1080,
+    "locations": 25,
+    "login_events": 68627,
+    "scenario_truth": 60000,
+    "transactions": 60000
+  },
+  "scenario_run_id": "run-42",
+  "seed": 42,
+  "time_range": {
+    "days": 90,
+    "end_utc": "2026-03-31T17:59:59+00:00",
+    "local_start": "2026-01-01",
+    "start_utc": "2025-12-31T18:00:00+00:00"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "benign_confounders": {
+    "bulk_merchant_receipts": 57,
+    "salary_day_spike": 61,
+    "travel_new_device": 10
+  },
+  "class_mix": {
+    "fraud": 70,
+    "fraud_rate": 0.035,
+    "normal": 1930,
+    "target_fraud_rate": 0.045
+  },
+  "config": {
+    "agents": 5,
+    "days": 30,
+    "merchants": 8,
+    "transactions_requested": 2000,
+    "wallets": 60
+  },
+  "entity_kinds": {
+    "agent": 5,
+    "customer": 60,
+    "merchant": 8
+  },
+  "fraud_families": {
+    "agent_cashout_spike": 8,
+    "ato": 7,
+    "circular": 6,
+    "mule_fanin": 7,
+    "scam_escalation": 14,
+    "scam_split": 12,
+    "velocity_burst": 16
+  },
+  "generator_version": "1.0.0",
+  "hash_algorithm": "sha256",
+  "notes": "Synthetic data only. Ground-truth labels exist only in scenario_truth.parquet keyed by transaction_id. Money is integer poisha. Timestamps are timezone-aware UTC. The same seed and counts reproduce byte-identical Parquet output.",
+  "outputs": {
+    "directory": "data\\generated_small",
+    "files": {
+      "devices.parquet": {
+        "sha256": "6b982aefb267d8ccec9ca8ca06e980fbdaf693f90f177cc273280ef08cea5075"
+      },
+      "entities.parquet": {
+        "sha256": "3cbf642bda12b713320f8a51bb4670b0e982822b792d33f3fa33fafe29d7c3ce"
+      },
+      "locations.parquet": {
+        "sha256": "58aa6ddfb43e8576a58debda93dbac1121d4014f2474350cadb8d9b47011e546"
+      },
+      "login_events.parquet": {
+        "sha256": "6ff769fc33a48e010088775c88fb0a67713df492ab9039b5dc7db7e9db0e2781"
+      },
+      "scenario_truth.parquet": {
+        "sha256": "942d5e0af6ab635b87dfeabe14d84a05ff57feb04ebcdcf59217a79756ce171b"
+      },
+      "transactions.parquet": {
+        "sha256": "3f757b7fdb17559e06ca911702ee2cefea587dc7273db11877f7a7b4f3b959d4"
+      }
+    },
+    "format": "parquet"
+  },
+  "row_counts": {
+    "devices": 86,
+    "entities": 73,
+    "locations": 25,
+    "login_events": 2353,
+    "scenario_truth": 2000,
+    "transactions": 2000
+  },
+  "scenario_run_id": "run-7",
+  "seed": 7,
+  "time_range": {
+    "days": 30,
+    "end_utc": "2026-01-30T17:59:59+00:00",
+    "local_start": "2026-01-01",
+    "start_utc": "2025-12-31T18:00:00+00:00"
+  }
+}
