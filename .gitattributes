@@ -1,0 +1,22 @@
+# Normalise line endings across platforms so a Windows and a Linux checkout
+# of this repository produce identical diffs.
+* text=auto eol=lf
+
+# Windows-only scripts keep CRLF.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary assets must never be line-ending converted.
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ubj binary
+*.pkl binary
+
+# Keep generated lockfiles out of language stats noise.
+package-lock.json linguist-generated=true
